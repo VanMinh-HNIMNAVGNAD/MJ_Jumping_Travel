@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://b8fxwbc61xkrs"]
+[gd_scene load_steps=11 format=4 uid="uid://b8fxwbc61xkrs"]
 
 [ext_resource type="Texture2D" uid="uid://cukrkrnjgeb5g" path="res://Assets/p1/Free/Background/Green.png" id="1_a02cp"]
 [ext_resource type="Texture2D" uid="uid://cbwqou6g216" path="res://Assets/p1/Free/Terrain/Terrain (16x16).png" id="2_go701"]
 [ext_resource type="PackedScene" uid="uid://d08x8apa68p1w" path="res://VirtualMan/VM.tscn" id="3_5a7ea"]
+[ext_resource type="PackedScene" uid="uid://c43h7vrsnv4fm" path="res://Trap/FireTrap/FireTrap.tscn" id="4_8j60k"]
+[ext_resource type="PackedScene" uid="uid://b0shbtih3tmlt" path="res://Trap/MovingTrap/MovingTrapSaw.tscn" id="5_fo5ed"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5a7ea"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
@@ -298,3 +300,15 @@ Speed = 150.0
 JumpVelocity = -500.0
 
 [node name="Trap" type="Node2D" parent="."]
+
+[node name="FireTrap" type="Node2D" parent="Trap"]
+
+[node name="FireTrap" parent="Trap/FireTrap" instance=ExtResource("4_8j60k")]
+position = Vector2(286, 247)
+
+[node name="MachineTrap" type="Node2D" parent="Trap"]
+
+[node name="MovingTrap" parent="Trap/MachineTrap" instance=ExtResource("5_fo5ed")]
+position = Vector2(232, 196)
+
+[node name="SpikeTrap" type="Node2D" parent="Trap"]

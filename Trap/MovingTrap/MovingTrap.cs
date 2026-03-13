@@ -15,12 +15,12 @@ public partial class MovingTrap : Trap
 		if (HasNode("AnimatedSprite2D"))
 		{
 			anima2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-			anima2D.Play("default");
+			anima2D.Play("on");
 		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	public override void _PhysicsProcess(double delta)
 	{
 		Position += new Vector2(Speed * direction * (float)delta, 0);
 		if (wallDetector.IsColliding())

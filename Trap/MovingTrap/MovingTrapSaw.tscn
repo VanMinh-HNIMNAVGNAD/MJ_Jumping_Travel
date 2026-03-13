@@ -83,7 +83,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_818g3"]
 size = Vector2(29, 28)
 
-[node name="MovingTrap" type="Area2D"]
+[node name="MovingTrapSaw" type="Area2D"]
+script = ExtResource("4_hd6h2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_uhc4g")
@@ -93,4 +94,7 @@ autoplay = "on"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("RectangleShape2D_818g3")
-script = ExtResource("4_hd6h2")
+
+[node name="WallDetector" type="RayCast2D" parent="."]
+position = Vector2(15, 0)
+target_position = Vector2(15, 0)

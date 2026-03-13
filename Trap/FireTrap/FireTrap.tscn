@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://c43h7vrsnv4fm"]
+
+[ext_resource type="Texture2D" uid="uid://cn6y1cjbrlclk" path="res://Assets/p1/Free/Traps/Fire/Off.png" id="1_m7u7m"]
+[ext_resource type="Texture2D" uid="uid://ccu6ok8ue7poc" path="res://Assets/p1/Free/Traps/Fire/On (16x32).png" id="1_u1jwu"]
+[ext_resource type="Script" uid="uid://dso67tkekjfkt" path="res://Trap/FireTrap/FireTrap.cs" id="3_fdu3c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8eco0"]
+atlas = ExtResource("1_m7u7m")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8l461"]
+atlas = ExtResource("1_u1jwu")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7u7m"]
+atlas = ExtResource("1_u1jwu")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdu3c"]
+atlas = ExtResource("1_u1jwu")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3aqvk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8eco0")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8l461")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7u7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdu3c")
+}],
+"loop": true,
+"name": &"on",
+"speed": 9.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8eco0"]
+radius = 5.0
+height = 16.0
+
+[node name="FireTrap" type="Area2D"]
+script = ExtResource("3_fdu3c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_3aqvk")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+disabled = true
+shape = SubResource("CapsuleShape2D_8eco0")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true

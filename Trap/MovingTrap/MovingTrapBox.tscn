@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://cw3y6hgx6hfka"]
+
+[ext_resource type="Texture2D" uid="uid://ctvln2tpp1yv5" path="res://Assets/p1/Free/Traps/Spike Head/Blink (54x52).png" id="1_txfya"]
+[ext_resource type="Script" uid="uid://b4k08hcrc7717" path="res://Trap/MovingTrap/MovingTrap.cs" id="1_y4ax5"]
+[ext_resource type="Texture2D" uid="uid://dceapy28nmi7" path="res://Assets/p1/Free/Traps/Spike Head/Idle.png" id="2_y4ax5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3rqt"]
+atlas = ExtResource("1_txfya")
+region = Rect2(0, 0, 54, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7mpx"]
+atlas = ExtResource("1_txfya")
+region = Rect2(54, 0, 54, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tck0"]
+atlas = ExtResource("1_txfya")
+region = Rect2(108, 0, 54, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ut3d"]
+atlas = ExtResource("1_txfya")
+region = Rect2(162, 0, 54, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4a3pw"]
+atlas = ExtResource("2_y4ax5")
+region = Rect2(0, 0, 54, 52)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_daks7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3rqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7mpx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tck0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ut3d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4a3pw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6najs"]
+size = Vector2(40, 37)
+
+[node name="MovingTrapBox" type="Area2D"]
+script = ExtResource("1_y4ax5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.2, 1.2)
+sprite_frames = SubResource("SpriteFrames_daks7")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_6najs")
+
+[node name="WallDetector" type="RayCast2D" parent="."]
+position = Vector2(20, 0)
+target_position = Vector2(20, 0)
