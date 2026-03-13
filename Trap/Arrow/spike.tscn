@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://csufdve4sceff"]
+
+[ext_resource type="Script" uid="uid://cw03fbiugjj5b" path="res://Trap/Traps/Trap.cs" id="1_nh5cf"]
+[ext_resource type="Texture2D" uid="uid://csdlb43ogv13x" path="res://Assets/kn/Vector/Tiles/spikes.svg" id="2_fcsp3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w65pv"]
+size = Vector2(12, 10)
+
+[node name="Spike" type="Area2D"]
+script = ExtResource("1_nh5cf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_fcsp3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_w65pv")
