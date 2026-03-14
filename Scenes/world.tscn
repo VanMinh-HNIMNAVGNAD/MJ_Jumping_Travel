@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://b8fxwbc61xkrs"]
+[gd_scene load_steps=18 format=4 uid="uid://b8fxwbc61xkrs"]
 
 [ext_resource type="Texture2D" uid="uid://efqnd73b81ai" path="res://Assets/p1/Free/Background/Yellow.png" id="1_5ukr8"]
 [ext_resource type="Texture2D" uid="uid://cukrkrnjgeb5g" path="res://Assets/p1/Free/Background/Green.png" id="1_a02cp"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b0shbtih3tmlt" path="res://Trap/MovingTrap/MovingTrapSaw.tscn" id="5_fo5ed"]
 [ext_resource type="PackedScene" uid="uid://csufdve4sceff" path="res://Trap/Spike/spike.tscn" id="7_k7acu"]
 [ext_resource type="PackedScene" uid="uid://b614bcg0t5gdg" path="res://Trap/Trampoline/Trampoline.tscn" id="8_5v1tr"]
+[ext_resource type="PackedScene" uid="uid://cw3y6hgx6hfka" path="res://Trap/MovingTrap/MovingTrapBox.tscn" id="9_5v1tr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ukr8"]
 texture = ExtResource("1_5ukr8")
@@ -350,6 +351,11 @@ position = Vector2(171, 244)
 Speed = 150.0
 JumpVelocity = -500.0
 
+[node name="VM2" parent="Characters" instance=ExtResource("3_5a7ea")]
+position = Vector2(382, 34)
+Speed = 150.0
+JumpVelocity = -500.0
+
 [node name="Trap" type="Node2D" parent="."]
 
 [node name="FireTrap" type="Node2D" parent="Trap"]
@@ -541,6 +547,29 @@ position = Vector2(157, -237)
 [node name="Trampoline2" parent="Trap/Trampoline" instance=ExtResource("8_5v1tr")]
 position = Vector2(243, 34)
 
+[node name="BoxSpike" type="Node2D" parent="Trap"]
+
+[node name="MovingTrapBox" parent="Trap/BoxSpike" instance=ExtResource("9_5v1tr")]
+position = Vector2(549, 66)
+
 [node name="Fruits" type="Node2D" parent="."]
+position = Vector2(105, 2)
+
+[node name="Node2D" type="Node2D" parent="Fruits"]
+
+[node name="Node2D2" type="Node2D" parent="Fruits"]
+
+[node name="Node2D3" type="Node2D" parent="Fruits"]
+
+[node name="Node2D4" type="Node2D" parent="Fruits"]
+
+[node name="Node2D5" type="Node2D" parent="Fruits"]
 
 [node name="Keys" type="Node2D" parent="."]
+position = Vector2(113, -3)
+
+[node name="Node2D" type="Node2D" parent="Keys"]
+
+[node name="Node2D2" type="Node2D" parent="Keys"]
+
+[node name="Node2D3" type="Node2D" parent="Keys"]

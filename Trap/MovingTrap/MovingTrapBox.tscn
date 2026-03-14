@@ -53,13 +53,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6najs"]
-size = Vector2(40, 37)
+size = Vector2(23, 24.5)
 
 [node name="MovingTrapBox" type="Area2D"]
 script = ExtResource("1_y4ax5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1.2, 1.2)
+scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_daks7")
 autoplay = "default"
 
@@ -68,5 +68,6 @@ visible = false
 shape = SubResource("RectangleShape2D_6najs")
 
 [node name="WallDetector" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(20, 0)
 target_position = Vector2(20, 0)
