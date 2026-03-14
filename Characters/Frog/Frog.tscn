@@ -312,12 +312,15 @@ height = 24.0
 
 [node name="Frog" type="CharacterBody2D"]
 script = ExtResource("1_qcfwi")
+Speed = 150.0
+JumpVelocity = -500.0
+DeathFallGravityScale = 1.2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mqk5k")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.4168268
+frame_progress = 0.53678226
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

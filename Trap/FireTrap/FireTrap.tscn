@@ -56,11 +56,12 @@ script = ExtResource("3_fdu3c")
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_3aqvk")
 animation = &"off"
+autoplay = "off"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-disabled = true
 shape = SubResource("CapsuleShape2D_8eco0")
+disabled = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
