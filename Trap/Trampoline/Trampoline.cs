@@ -3,11 +3,15 @@ using System;
 
 public partial class Trampoline : Area2D
 {
+	
 	[Export] public float JumpBoost = -500.0f;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		
+		Monitoring = true;
+		Monitorable = true;
+		SetCollisionMaskValue(1, true);
+		SetCollisionMaskValue(2, true);
 		this.BodyEntered += OnBodyEntered;
 	}
 
@@ -18,9 +22,9 @@ public partial class Trampoline : Area2D
 
 	private void OnBodyEntered(Node2D body)
 	{
-		if (body is Char ch)
+		if (body is CharacterBody2D character)
 		{
-			ch.Velocity = new Vector2(ch.Velocity.X, JumpBoost);
+			character.Velocity = new Vector2(character.Velocity.X, JumpBoost);
 			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("jump");
 		}
 	}

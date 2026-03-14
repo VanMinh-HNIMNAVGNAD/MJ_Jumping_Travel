@@ -1,7 +1,7 @@
 using System;
 using Godot;
 
-public partial class Char : CharacterBody2D
+public partial class Char : CharacterBody2D, ITrapTarget
 {
     [Export]
     public float Speed = 300.0f;
