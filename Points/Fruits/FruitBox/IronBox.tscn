@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=3 uid="uid://ch8v42q5j8j8i"]
+
+[ext_resource type="Texture2D" uid="uid://cb4qma62ecl47" path="res://Assets/p1/Free/Items/Boxes/Box3/Idle.png" id="1_e66qv"]
+[ext_resource type="Texture2D" uid="uid://b67xxu5khgsoj" path="res://Assets/p1/Free/Items/Boxes/Box3/Break.png" id="1_wpjn6"]
+[ext_resource type="Texture2D" uid="uid://0w5374ufa75l" path="res://Assets/p1/Free/Items/Boxes/Box3/Hit (28x24).png" id="3_0fciy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nh7yg"]
+atlas = ExtResource("1_wpjn6")
+region = Rect2(0, 0, 28, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6ver"]
+atlas = ExtResource("1_wpjn6")
+region = Rect2(28, 0, 28, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1apxy"]
+atlas = ExtResource("1_wpjn6")
+region = Rect2(56, 0, 28, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytuwt"]
+atlas = ExtResource("1_wpjn6")
+region = Rect2(84, 0, 28, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50fvr"]
+atlas = ExtResource("1_e66qv")
+region = Rect2(0, 0, 28, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5aaux"]
+atlas = ExtResource("3_0fciy")
+region = Rect2(0, 0, 28, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qo1i"]
+atlas = ExtResource("3_0fciy")
+region = Rect2(28, 0, 28, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wpjn6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nh7yg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6ver")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1apxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytuwt")
+}],
+"loop": true,
+"name": &"break",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50fvr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5aaux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qo1i")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0fciy"]
+size = Vector2(11, 11)
+
+[node name="IronBox" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.57, 0.541)
+sprite_frames = SubResource("SpriteFrames_wpjn6")
+autoplay = "default"
+frame_progress = 0.91319954
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_0fciy")
