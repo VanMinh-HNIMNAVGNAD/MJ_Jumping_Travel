@@ -12,7 +12,6 @@ script = ExtResource("1_nh5cf")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_fcsp3")
-script = ExtResource("1_nh5cf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

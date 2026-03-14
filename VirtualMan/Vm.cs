@@ -9,18 +9,50 @@ public partial class Vm : CharacterBody2D
     [Export]
     public float JumpVelocity = -400.0f;
 
+    [Export]
+    public float AbyssY = 800.0f;
+
+    [Export]
+    public float ReloadY = 780.0f;
+
+    [Export]
+    public float DeathFallGravityScale = 1.35f;
+
     private float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
     private AnimatedSprite2D animatedSprite2D;
+    private CollisionShape2D collisionShape2D;
+    private bool isDead = false;
 
     public int JumpCount = 0;
 
     public override void _Ready()
     {
         animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+        collisionShape2D = GetNode<CollisionShape2D>("CollisionShape2D");
     }
 
     public override void _PhysicsProcess(double delta)
     {
+
+        if (!isDead && GlobalPosition.Y >= AbyssY)
+        {
+            Die(new Vector2(0, JumpVelocity * 0.45f));
+        }
+
+        if (isDead)
+        {
+            Vector2 deadVelocity = Velocity;
+            deadVelocity.Y += gravity * DeathFallGravityScale * (float)delta;
+            Velocity = deadVelocity;
+            MoveAndSlide();
+
+            if (GlobalPosition.Y >= ReloadY)
+            {
+                GetTree().ReloadCurrentScene();
+            }
+
+            return;
+        }
 
         Vector2 velocity = Velocity;
         if (IsOnFloor())
@@ -51,8 +83,36 @@ public partial class Vm : CharacterBody2D
         UpdateAnimation(direction);
     }
 
+    public void Die(Vector2? knockback = null)
+    {
+        if (isDead)
+        {
+            return;
+        }
+
+        isDead = true;
+        JumpCount = 0;
+
+        // Drop collision with ground so the death state can fall out of the screen.
+        SetCollisionMaskValue(1, false);
+        collisionShape2D.SetDeferred("disabled", true);
+
+        Vector2 defaultKnockback = new Vector2(animatedSprite2D.FlipH ? 110.0f : -110.0f, JumpVelocity * 0.55f);
+        Velocity = knockback ?? defaultKnockback;
+
+        if (animatedSprite2D.SpriteFrames.HasAnimation("be_attacked"))
+        {
+            animatedSprite2D.Play("be_attacked");
+        }
+    }
+
     public void UpdateAnimation(float direction)
     {
+        if (isDead)
+        {
+            return;
+        }
+
         if (!IsOnFloor())
         {
             if (Velocity.Y < 0)
