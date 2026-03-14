@@ -1,5 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://cnvg57f4ttpll"]
+[gd_scene load_steps=22 format=3 uid="uid://cnvg57f4ttpll"]
 
+[ext_resource type="Script" uid="uid://vknubyni5spb" path="res://Points/Collectible.cs" id="1_2extu"]
 [ext_resource type="Texture2D" uid="uid://vvfydb8xo8rr" path="res://Assets/p1/Free/Items/Fruits/Cherries.png" id="1_xu6w6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2extu"]
@@ -133,6 +134,7 @@ animations = [{
 radius = 6.0
 
 [node name="Cherries" type="Area2D"]
+script = ExtResource("1_2extu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_oengl")

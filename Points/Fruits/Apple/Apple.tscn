@@ -1,5 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://dkxvvbdnoxj35"]
+[gd_scene load_steps=22 format=3 uid="uid://dkxvvbdnoxj35"]
 
+[ext_resource type="Script" uid="uid://vknubyni5spb" path="res://Points/Collectible.cs" id="1_05ffj"]
 [ext_resource type="Texture2D" uid="uid://bi4hdh2mo3rtd" path="res://Assets/p1/Free/Items/Fruits/Apple.png" id="1_jcs3c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_05ffj"]
@@ -133,6 +134,7 @@ animations = [{
 radius = 5.3851647
 
 [node name="Apple" type="Area2D"]
+script = ExtResource("1_05ffj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_h7f8m")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://diqqemlhrrfeg"]
+[gd_scene load_steps=12 format=3 uid="uid://diqqemlhrrfeg"]
 
 [ext_resource type="Texture2D" uid="uid://bymv0r3m78lrw" path="res://Assets/mj/Coin.png" id="1_7rhyy"]
+[ext_resource type="Script" uid="uid://vknubyni5spb" path="res://Points/Collectible.cs" id="1_fruki"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fruki"]
 atlas = ExtResource("1_7rhyy")
@@ -56,18 +57,19 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 9.0
+"speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v4o2v"]
 
 [node name="Coin" type="Area2D"]
+script = ExtResource("1_fruki")
 
 [node name="AnimationTree" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.04, 0.04)
 sprite_frames = SubResource("SpriteFrames_gn1u4")
 autoplay = "default"
-frame_progress = 0.5739179
+frame_progress = 0.28918433
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://bwmcgn5rs88da"]
+[gd_scene load_steps=16 format=3 uid="uid://bwmcgn5rs88da"]
 
 [ext_resource type="Texture2D" uid="uid://xt1mni6g2t5" path="res://Assets/p1/Free/Items/Boxes/Box2/Idle.png" id="1_5tdsn"]
+[ext_resource type="Script" uid="uid://vknubyni5spb" path="res://Points/Collectible.cs" id="1_b5d5f"]
 [ext_resource type="Texture2D" uid="uid://ctmmpdc4e7nwk" path="res://Assets/p1/Free/Items/Boxes/Box2/Break.png" id="1_ba8ti"]
 [ext_resource type="Texture2D" uid="uid://c0ot6fr7fgd1j" path="res://Assets/p1/Free/Items/Boxes/Box2/Hit (28x24).png" id="3_6nb5b"]
 
@@ -89,6 +90,7 @@ animations = [{
 size = Vector2(11, 9)
 
 [node name="Box2" type="Area2D"]
+script = ExtResource("1_b5d5f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.57, 0.556)
