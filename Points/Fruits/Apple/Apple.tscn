@@ -136,7 +136,8 @@ radius = 5.3851647
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_h7f8m")
-frame_progress = 0.30225727
+autoplay = "default"
+frame_progress = 0.6394211
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

@@ -18,9 +18,9 @@ public partial class Trampoline : Area2D
 
 	private void OnBodyEntered(Node2D body)
 	{
-		if (body is Vm vm)
+		if (body is Char ch)
 		{
-			vm.Velocity = new Vector2(vm.Velocity.X, JumpBoost);
+			ch.Velocity = new Vector2(ch.Velocity.X, JumpBoost);
 			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("jump");
 		}
 	}

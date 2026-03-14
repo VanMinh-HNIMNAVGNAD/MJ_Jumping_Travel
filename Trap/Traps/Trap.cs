@@ -14,9 +14,9 @@ public partial class Trap : Area2D
 
 	public void OnBodyEntered(Node2D body)
 	{
-		if (body is Vm vm)
+		if (body is Char ch)
 		{
-			vm.Die();
+			ch.Die();
 		}
 	}
 }

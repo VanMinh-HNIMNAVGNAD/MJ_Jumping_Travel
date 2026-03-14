@@ -1,6 +1,6 @@
 [gd_scene load_steps=48 format=3 uid="uid://d08x8apa68p1w"]
 
-[ext_resource type="Script" uid="uid://b6ojdk7fbovcn" path="res://VirtualMan/Vm.cs" id="1_0qsso"]
+[ext_resource type="Script" uid="uid://b6ojdk7fbovcn" path="res://Characters/Char.cs" id="1_0qsso"]
 [ext_resource type="Texture2D" uid="uid://kaboso63xi3i" path="res://Assets/p1/Free/Main Characters/Virtual Guy/Idle (32x32).png" id="1_wlreo"]
 [ext_resource type="Texture2D" uid="uid://gaputql4k3ge" path="res://Assets/p1/Free/Main Characters/Virtual Guy/Double Jump (32x32).png" id="1_yu8pd"]
 [ext_resource type="Texture2D" uid="uid://b5cho3xg0cngt" path="res://Assets/p1/Free/Main Characters/Virtual Guy/Fall (32x32).png" id="2_1ldah"]
@@ -316,9 +316,9 @@ script = ExtResource("1_0qsso")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hip63")
-animation = &"run"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.9194468
+script = ExtResource("1_0qsso")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

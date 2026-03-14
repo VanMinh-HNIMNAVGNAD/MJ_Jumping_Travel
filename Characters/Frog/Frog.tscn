@@ -1,0 +1,103 @@
+[gd_scene load_steps=15 format=3 uid="uid://bmsx8rbu0nuo2"]
+
+[ext_resource type="Texture2D" uid="uid://pxm6g8v7uwnf" path="res://Assets/p1/Free/Main Characters/Ninja Frog/Idle (32x32).png" id="1_aacy2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3tmu"]
+atlas = ExtResource("1_aacy2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lamdi"]
+atlas = ExtResource("1_aacy2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcfwi"]
+atlas = ExtResource("1_aacy2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7nom"]
+atlas = ExtResource("1_aacy2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a810i"]
+atlas = ExtResource("1_aacy2")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfxub"]
+atlas = ExtResource("1_aacy2")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wilo"]
+atlas = ExtResource("1_aacy2")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86lnq"]
+atlas = ExtResource("1_aacy2")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_venl4"]
+atlas = ExtResource("1_aacy2")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgvqn"]
+atlas = ExtResource("1_aacy2")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b06lu"]
+atlas = ExtResource("1_aacy2")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mqk5k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3tmu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lamdi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcfwi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7nom")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a810i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfxub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wilo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86lnq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_venl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgvqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b06lu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aacy2"]
+height = 24.0
+
+[node name="Frog" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mqk5k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_aacy2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
